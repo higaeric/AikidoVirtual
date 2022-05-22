@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <title>Tombo Dojo</title>
+
+    <style>
+        body{
+            background-color: black;
+            /*font-family: 'Sen', sans-serif;*/
+            font-family: 'Macondo', cursive;
+        }
+
+
+        .logo {
+            margin: 5px;
+        }
+
+
+        .childLogo {
+            position:absolute;
+            top: 20px;;
+            left: 25px;
+        }
+
+        .dot {
+            margin: 10px;
+            height: 80px;
+            width: 80px;
+            background-image: linear-gradient(to bottom left, red, rgb(182, 12, 12) 90%);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .button {
+            background-color: transparent;
+            border: none;
+            color: #0099FF;
+            padding: 15px 0px;
+            text-align: center;
+            text-decoration: underline;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        footer p {
+            font-size: 16px;
+            color: white;
+        }
+
+        footer h2 {
+            font-size: 24px;
+            color: gray;
+        }
+        /* ****************************************************
+        *                Grid section
+        *******************************************************/
+        /*.item {
+            background-color: darkseagreen;
+            color: darkgreen;
+            border-radius: 10px;
+        }*/
+        
+        .grid-container-header{
+            display: grid;
+            grid-template-columns: 0.6fr 1.4fr; 
+            grid-template-rows: 1fr 0.5fr; 
+            gap: 0px 0px; 
+            background-color: rgb(16, 16, 31);
+
+           /*grid-template-areas: 
+                ". ."
+                ". ."; */
+        }
+
+        .grid-header-right {
+            color:white;
+            text-align: right;
+            margin-right: 10px;
+            font-size: 40px;
+        }
+
+        .grid-header-right2 {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .grid-header-left {
+            color:white;
+            padding-left: 10px;
+        }
+
+        .grid-container-footer-item {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        .grid-item-fimg {
+            margin: 20px;
+            grid-row-start: 1;  /* Comienza en la fila 1 */
+            grid-row-end: 3;    /* termina en la fila 2*/
+        }
+
+        /* ****************************************************
+        *                Flex section
+        *******************************************************/
+        .fLeft.fCentral.fRight {
+            flex-grow: 1;       /*Crece todo el ancho posible*/
+            flex-basis: 100%;   /*Por defecto*/
+        }
+
+        .flex-containerh {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: rgb(16, 16, 31);
+        }
+
+        .flex-containerh > div {
+            margin: 5px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* ****************************************************
+        *                Media section
+        *******************************************************/
+        /*Media tamaño tablet*/
+        @media all and (min-width: 600px){
+
+            .fLeft.fCentral.fRight
+            {
+                flex: 1 1 auto; /* flex: <flex-grow> <flex-shrink> <flex-basis> */
+            }
+        }
+
+        /* PC */
+        @media all and (min-width: 800px){
+            .fCentral {flex:2 0;} 
+            .fLeft {order: 1;}
+            .fCentral {order: 2; }
+            .fRight {order: 3;}
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>        
+            <div class="grid-container-header">
+
+                <div class="logo">
+                    <span class="dot"></span>               
+                    <img src="img/dragonFlyColor-mid.png" class="childLogo" alt="Dojo" width="90" height="90"><!-- -->
+                    <img src="img/Aikido_Kanji_3.png" class="" height="90" >
+                </div>
+                
+                <h1 class="grid-header-right"> Aikido para todos</h1>
+                <h2 class="grid-header-left">Virtual Dojo</h2>             
+
+                <nav class="grid-header-right2">
+                    <button class="button" onclick="goHome()">Inicio</button> |
+                    <button class="button" onclick="goAikidoInfo()">Sobre el Aikido</button> |
+                    <button class="button">Galeria</button> |
+                    <button class="button" onClick="goContacto()">Contacto</button> |
+                </nav>
+            
+            </div>
+        </header> 
+        <div class="contenido">
+            <main>
+            <div id="mainContent">
+
+            </div>
+            </main>
+        </div>
+        <footer>
+            <div class="flex-containerh">
+                <div class="fLeft grid-container-footer-item">
+                    <img src="img/Location_icon.png" class="grid-item-fimg" width="50" height="50">
+                    <div>
+                        <h2>Dojo Central</h2>
+                        <p>Navarro 2544, CABA, </br>Buenos Aires, Argentina</p>
+                    </div>
+                </div>
+                <div class="fCenter grid-container-footer-item">
+                    <img src="img/telephone65-blue.png" class="grid-item-fimg" width="30" height="30">
+                    <div>
+                        <h2>Contacto</h2>
+                        <p>(011) 4321-5555</p>
+                    </div>
+                </div>
+                <div class="fRight grid-container-footer-item">
+                    <img src="img/social_icon2.png" class="grid-item-fimg" width="40" height="40">
+                    <div>
+                        <h2>Redes <br>Sociales</h2>
+                        <p>Seguinos en:</p>
+                    </div>
+                    <div>
+                        <img src="img/social_face.png" >
+                        <img src="img/social_twitter.png">
+                        <img src="img/social_youtube.png">
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        $("#mainContent").load("template/home.html");
+
+        function goHome() 
+        {
+            $("#mainContent").load("template/home.html");
+        }
+
+        function goAikidoInfo ()
+        {
+            $("#mainContent").load("template/aikidoInfo.html");
+        }
+
+        function goContacto ()
+        {
+            $("#mainContent").load("template/contacto.html");
+        }
+
+    </script>
+
+</body>
+
+</html>

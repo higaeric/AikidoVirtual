@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        .home_body {
+            background-color: #464646;
+            color: white;
+            padding: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .background-pattern {
+            background: url("img/texture4.jpg") repeat;
+        }
+        .btn-enviar {
+            margin:20px;
+            width: 100px;
+            height: 30px;
+        }
+                
+        /* ****************************************************
+        *                Grid section
+        *******************************************************/
+        .grid-container-email {
+            display:grid;
+            grid-template-columns: auto auto;
+        }
+
+        /* ****************************************************
+        *                Flex section
+        *******************************************************/
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern">
+        <div class="home_body">
+                <h2>Enviar email:</h2>            
+            <div class="grid-container-email">
+                <span>Nombre</span>
+                <input type="text" name="nombre" size="30" maxlength="50">
+
+                <span>Email</span>
+                <input type="email" name="email" size="30" >
+
+                <span>Comentario</span>
+                <textarea type="text" name="comentario" cols="40" rows="15" > </textarea>
+            </div>
+            <div class="center">
+                <button class="btn-enviar">Enviar</button>
+            </div>
+            <hr size="2px" color="black" />
+            
+            <h2>Ubicacion:</h2>
+            <h3>Dojo Central</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1843.3591921425036!2d-58.49030633018082!3d-34.59168169487298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb63ed0b4b1bb%3A0x62bd3475b45a943c!2sBiblioteca%20General%20Artigas!5e0!3m2!1ses-419!2sar!4v1653173952141!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>Navarro 2544, CABA, </br>Buenos Aires, Argentina</p>
+
+            <h3>Sucursal Villa Pueyrredon:</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642.3036239990097!2d-58.49844160721068!3d-34.58880312891765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6487b6698fb%3A0x77df388024d5a5!2sTerrada%204243%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1653174201493!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>Terrada 4243, CABA, </br>Buenos Aires, Argentina</p>
+
+            <hr size="2px" color="black" />
+
+            <h2>Telefonos:</h2>
+            <h3>TE: (011) 4321-5555</h3>
+            <h3>Whatsapp: +54 011 6789-1234</h3>
+        </div>
+    </div>
+</body>
+</html>
