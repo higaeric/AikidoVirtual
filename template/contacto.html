@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,58 +15,147 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         .background-pattern {
             background: url("img/texture4.jpg") repeat;
         }
+
         .btn-enviar {
-            margin:20px;
             width: 100px;
             height: 30px;
         }
-                
+
+        .advertencia {
+            color: rgb(255, 11, 11);
+            padding-left: 10px;
+        }
+
+        .enviadoMsg {
+            color:rgb(58, 221, 52);
+            font-weight: bold;
+        }
+
+        input[type="text"]{ padding: 5px 10px; line-height: 28px; }
+        input[type="email"]{ padding: 5px 10px; line-height: 28px; }
+
         /* ****************************************************
         *                Grid section
         *******************************************************/
         .grid-container-email {
-            display:grid;
-            grid-template-columns: auto auto;
+            display: grid;
+            grid-template-columns: 20% auto 20%;
+            grid-template-rows: auto auto auto auto;
+            grid-row-gap: 20px;
+            grid-template-areas: "a-left a-center a-right"
+                                 "b-left b-center b-right"
+                                 "c-left c-center c-right"
+                                 "d-footer d-footer d-footer"
         }
 
-        /* ****************************************************
-        *                Flex section
-        *******************************************************/
-        .center {
-            display: flex;
-            justify-content: center;
+        /*----------------------------------------------------------------*/
+        /* Defino el nombre y color de cada area del grid                 */
+        /*----------------------------------------------------------------*/
+        .a-left {grid-area: a-left;}
+        .a-center {grid-area: a-center;}
+        .a-right {grid-area: a-right;}
+        .b-left {grid-area: b-left;}
+        .b-center {grid-area: b-center;}
+        .b-right {grid-area: b-right;}
+        .c-left {grid-area: c-left;}
+        .c-center {grid-area: c-center;}
+        .c-right {grid-area: c-right;}
+        .d-footer {grid-area: d-footer;}
+
+        /*----------------------------------------------------------------*/
+        /* Punto de corte para pantallas tipo tablet                      */
+        /*----------------------------------------------------------------*/
+        @media only screen and (max-width: 800px) {
+            .grid-container-email {
+                /* 7 filas / 2 columna */
+                grid-template: auto auto auto auto auto auto 60px / auto auto; 
+
+                /* Distribucion en cada fila */
+                grid-template-areas: 
+                "a-left a-right" 
+                "a-center a-center" 
+                "b-left b-right" 
+                "b-center b-center" 
+                "c-left c-right" 
+                "c-center c-center" 
+                "d-footer d-footer";
+            }
+        }
+
+        .d-footer {
+            grid-column-start: 1;        /* Comienza en la linea 1 */
+            grid-column-end: 3;          /* Finaliza en la linea  */
+            text-align: center;
+        }
+
+
+        /*----------------------------------------------------------------*/
+        /* Punto de corte para pantallas tipo celular                     */
+        /*----------------------------------------------------------------*/
+        @media only screen and (max-width: 600px) {
+            .grid-container-email {
+                /* 10 filas / 1 columna */
+                grid-template: auto auto auto auto auto auto auto auto auto auto / 100%; 
+
+                /* Distribucion el contenido en cada fila */
+                grid-template-areas: "a-left" "a-center" "a-right"  "b-left" "b-center" "b-right" "c-left" "c-center" "c-right" "d-footer";
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="background-pattern">
         <div class="home_body">
-                <h2>Enviar email:</h2>            
-            <div class="grid-container-email">
-                <span>Nombre</span>
-                <input type="text" name="nombre" size="30" maxlength="50">
+            <form name="fvalidacion">
+                <h2>Enviar email:</h2>
+                <div class="grid-container-email">
+                    <span class="a-left">Nombre</span>
+                    <input required type="text" id="txtName" name="nombre" class="a-center" maxlength="50" placeholder="Ingrese su nombre">
+                    <span class="advertencia a-right" id="spNombre">* Por favor complete el nombre</span>
 
-                <span>Email</span>
-                <input type="email" name="email" size="30" >
+                    <span class="b-left">Email</span>
+                    <input required type="email" id="txtEmail" name="email" class="b-center" placeholder="Su correo electronico">
+                    <span class="advertencia b-right" id="spEmail">* Por favor introduzca o verifique si el email es correcto.</span>
 
-                <span>Comentario</span>
-                <textarea type="text" name="comentario" cols="40" rows="15" > </textarea>
-            </div>
-            <div class="center">
-                <button class="btn-enviar">Enviar</button>
-            </div>
+                    <span class="c-left">Comentario</span>
+                    <textarea type="text" class="c-center" name="comentario" cols="40" rows="15"> </textarea>
+                    <span class="c-right"></span>
+
+                    <div class="d-footer">
+                        <button class="btn-enviar" type="button" onclick="validar()">Enviar</button>
+                        <p id="msgEnviado" class="enviadoMsg"> se ha enviado el mensaje correctamente.</p>     
+                    </div>
+                </div>
+
+                <!-- <input type="submit" value="Enviar" class="btn-enviar" onclick="validar()"></input>-->
+                <!-- <div class="center">
+                    <button class="btn-enviar" type="button" onclick="validar()">Enviar</button>
+                    
+                    <p id="msgEnviado" class="enviadoMsg"> se ha enviado el mensaje correctamente.</p>     
+                </div> -->
+                               
+            </form>
+
             <hr size="2px" color="black" />
-            
+
             <h2>Ubicacion:</h2>
             <h3>Dojo Central</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1843.3591921425036!2d-58.49030633018082!3d-34.59168169487298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb63ed0b4b1bb%3A0x62bd3475b45a943c!2sBiblioteca%20General%20Artigas!5e0!3m2!1ses-419!2sar!4v1653173952141!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1843.3591921425036!2d-58.49030633018082!3d-34.59168169487298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb63ed0b4b1bb%3A0x62bd3475b45a943c!2sBiblioteca%20General%20Artigas!5e0!3m2!1ses-419!2sar!4v1653173952141!5m2!1ses-419!2sar"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p>Navarro 2544, CABA, </br>Buenos Aires, Argentina</p>
 
             <h3>Sucursal Villa Pueyrredon:</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642.3036239990097!2d-58.49844160721068!3d-34.58880312891765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6487b6698fb%3A0x77df388024d5a5!2sTerrada%204243%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1653174201493!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642.3036239990097!2d-58.49844160721068!3d-34.58880312891765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6487b6698fb%3A0x77df388024d5a5!2sTerrada%204243%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1653174201493!5m2!1ses-419!2sar"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p>Terrada 4243, CABA, </br>Buenos Aires, Argentina</p>
 
             <hr size="2px" color="black" />
@@ -75,5 +165,70 @@
             <h3>Whatsapp: +54 011 6789-1234</h3>
         </div>
     </div>
+
+    <script>
+
+        document.getElementById("msgEnviado").style.visibility = "hidden";
+        document.getElementById("spNombre").style.visibility = "hidden";
+        document.getElementById("spEmail").style.visibility = "hidden";
+
+        function validar() {
+            var todoCorrecto = true;
+
+            //Validar email
+            var elementoEmail = document.getElementById("txtEmail");
+            var advEmail = document.getElementById("spEmail");
+
+            if (elementoEmail.value == ""){
+                advEmail.style.visibility= "visible";
+                todoCorrecto = false;
+                elementoEmail.focus();
+            }
+            else {
+                if (!validarEmailFormat(elementoEmail.value)){
+                    advEmail.style.visibility= "visible";
+                    todoCorrecto = false;
+                    elementoEmail.focus();
+                }
+                else {
+                    advEmail.style.visibility = "hidden";
+                }
+            }            
+
+            // validar nombre:
+            var elementoNombre = document.getElementById("txtName");
+            var advNombre = document.getElementById("spNombre");
+
+            if (elementoNombre.value == ""){
+                advNombre.style.visibility= "visible";
+                todoCorrecto = false;
+                elementoNombre.focus();                
+            }
+            else {
+                advNombre.style.visibility = "hidden";
+            }
+
+            if(todoCorrecto) {
+                var elementoEnviado = document.getElementById("msgEnviado");
+                elementoEnviado.textContent = "Muchas gracias " + elementoNombre.value + ". Pronto nos contactaremos.";
+                elementoEnviado.style.visibility = "visible";
+            }
+            else {
+                document.getElementById("msgEnviado").style.visibility = "hidden";
+            }
+        }
+
+        function validarEmailFormat(strEmail) {
+            //regular expresion:
+            var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            if(strEmail.match(mailFormat)) {
+                return true;
+            }
+
+            return false;
+        }
+    </script>
 </body>
+
 </html>
