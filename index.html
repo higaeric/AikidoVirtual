@@ -8,30 +8,21 @@
     <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
 
+    <link rel="stylesheet" href="css/generalStyle.css" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
-    <!--<link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet"> -->
+    <!--<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">-->
     <title>Tombo Dojo</title>
 
     <style>
-        body {
-            background-color: black;
-            /*font-family: 'Sen', sans-serif;*/
-            font-family: 'Macondo', cursive;
-        }
-
-
         .logo {
             margin: 5px;
-
         }
-
 
         .childLogo {
             position: absolute;
             top: 20px;
-            ;
             left: 25px;
         }
 
@@ -82,7 +73,6 @@
             grid-template-rows: auto auto;
             /*1fr 0.5fr; */
             gap: 0px 0px;
-            background-color: rgb(16, 16, 31);
 
             grid-template-areas:
                 "headerLogo headerTitulo"
@@ -241,7 +231,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="grid-container-header">
+            <div class="grid-container-header header">
 
                 <div class="logo gLogo">
                     <span class="dot"></span>
@@ -255,7 +245,7 @@
                 <nav class="grid-header-right2">
                     <button class="button" onclick="goHome()">Inicio</button> |
                     <button class="button" onclick="goAikidoInfo()">Sobre el Aikido</button> |
-                    <button class="button">Galeria</button> |
+                    <button class="button" onclick="goGallery()">Galeria</button> |
                     <button class="button" onClick="goContacto()">Contacto</button> |
                 </nav>
 
@@ -309,6 +299,10 @@
 
         function goAikidoInfo() {
             $("#mainContent").load("template/aikidoInfo.html");
+        }
+
+        function goGallery() {
+            location.href="template/galeria.html";
         }
 
         function goContacto() {

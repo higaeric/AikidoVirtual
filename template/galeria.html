@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" href="../css/generalStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Galeria</title>
+    <style>
+        /* Animation property */
+        button {
+            animation: wiggle 4s linear infinite;
+        }
+
+        /* Keyframes */
+        @keyframes wiggle {
+
+            0%,
+            7% {
+                transform: rotateZ(0);
+            }
+
+            15% {
+                transform: rotateZ(-12deg);
+            }
+
+            20% {
+                transform: rotateZ(10deg);
+            }
+
+            25% {
+                transform: rotateZ(-10deg);
+            }
+
+            30% {
+                transform: rotateZ(6deg);
+            }
+
+            35% {
+                transform: rotateZ(-4deg);
+            }
+
+            40%,
+            100% {
+                transform: rotateZ(0);
+            }
+        }
+
+        body {
+            background: #000;
+        }
+
+        button {
+            position: absolute;
+            left: 30px;
+            top: 35px;
+
+            height: 3em;
+            width: 6em;
+
+            background: darkgray;
+            border: none;
+            border-radius: 0.2em 0.2em 0.2em 0.2em;
+            color: white;
+            font-size: 1em;
+            transform-origin: 50% 5em;
+        }
+
+        h1{
+            padding-top: 15px;
+        }
+
+        .topHeader {
+            text-align: center;
+            height: 75px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header topHeader">
+            <button class="button" onclick="location.href='../index.html'">Volver</button>
+            <h1>Galeria de Imagenes</h1>
+        </div>
+    </header>
+    <main>
+
+    </main>
+</body>
+
+</html>
