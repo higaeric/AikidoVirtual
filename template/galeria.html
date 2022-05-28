@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Galeria</title>
     <style>
+        body {
+            background: #000;
+        }
+
         /* Animation property */
         button {
             animation: wiggle 4s linear infinite;
@@ -27,7 +31,7 @@
             }
 
             15% {
-                transform: rotateZ(-12deg);
+                transform: rotateY(-12deg);
             }
 
             20% {
@@ -52,10 +56,6 @@
             }
         }
 
-        body {
-            background: #000;
-        }
-
         button {
             position: absolute;
             left: 30px;
@@ -72,7 +72,7 @@
             transform-origin: 50% 5em;
         }
 
-        h1{
+        h1 {
             padding-top: 15px;
         }
 
@@ -80,18 +80,242 @@
             text-align: center;
             height: 75px;
         }
+
+        /* ****************************************************
+        *                Gallery
+        *******************************************************/
+        .gallery-general {
+            padding: 20px;
+            border-radius: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: silver;
+        }
+
+        .gallery-general img {
+            height: 250px;
+            width: 350px;
+            transform: scale(1.0);
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .img-item {
+            box-sizing: content-box;
+            border-radius: 2em;
+            margin: 10px;
+            height: 250px;
+            width: 350px;
+            overflow: hidden;
+            display: inline-block;
+            color: white;
+            position: relative;
+            box-shadow: 0 0 16px #333;
+            /*background-color: white;*/
+        }
+
+        .img-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .img-item:hover .transparent-box {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .img-description {
+            position: absolute;
+            bottom: 0px;
+            left: 20px;
+            opacity: 0.0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /*.img-item:hover .transparent-box {
+            background-color: rgba(0, 0, 0, 0.5);
+        }*/
+
+        .img-item:hover .img-description {
+            transform: translateY(-20px);
+            opacity: 1.0;
+        }
+
+        .description-opacity-low {
+            opacity: 0.5;
+        }
+
+
+        /*.flex-top-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }*/
+        .title-page {
+                color: red;;
+            }
+
+        @media all and (max-width: 600px) {
+            .title-page {
+                color: blue;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="header topHeader">
-            <button class="button" onclick="location.href='../index.html'">Volver</button>
-            <h1>Galeria de Imagenes</h1>
+            <div>
+                <button class="button" onclick="location.href='../index.html'">Volver</button>
+            </div>
+            <div>
+                <h1 class="title-page">Galeria de Imagenes</h1>
+            </div>
         </div>
     </header>
     <main>
+        <div class="gallery-general">
+            <div class="img-item">
+                <img src="../img/fotos/100.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Formacion para el saludo</p>
+                        <p class="description-opacity-low">Año 2016</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="img-item">
+                <img src="../img/fotos/110.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Ukemi</p>
+                        <p class="description-opacity-low">Febrero 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/130.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Practica - Ikkyo</p>
+                        <p class="description-opacity-low">Abril 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/140.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Practica - Shime</p>
+                        <p class="description-opacity-low">Abril 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/150.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Seminario</p>
+                        <p class="description-opacity-low">Mayo 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/160.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase infatiles</p>
+                        <p class="description-opacity-low">Marzo 2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/170.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Aikido Kids</p>
+                        <p class="description-opacity-low">Marzo 2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/180.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase - Katatedori</p>
+                        <p class="description-opacity-low">Noviembre 2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/190.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Seminario de armas en Ezeiza</p>
+                        <p class="description-opacity-low">Febrero 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/200.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Formacion de saludo</p>
+                        <p class="description-opacity-low">Abril 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/210.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Entrenamiento</p>
+                        <p class="description-opacity-low">Mayo 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/220.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase de los Jueves</p>
+                        <p class="description-opacity-low">Septiembre 2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/230.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase especial en Bernal</p>
+                        <p class="description-opacity-low">Mayo 2022</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/240.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase de Lucia</p>
+                        <p class="description-opacity-low">Mayo 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 
