@@ -8,28 +8,21 @@
     <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
 
+    <link rel="stylesheet" href="css/generalStyle.css" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">-->
     <title>Tombo Dojo</title>
 
     <style>
-        body{
-            background-color: black;
-            /*font-family: 'Sen', sans-serif;*/
-            font-family: 'Macondo', cursive;
-        }
-
-
         .logo {
             margin: 5px;
         }
 
-
         .childLogo {
-            position:absolute;
-            top: 20px;;
+            position: absolute;
+            top: 20px;
             left: 25px;
         }
 
@@ -51,6 +44,7 @@
             text-decoration: underline;
             display: inline-block;
             font-size: 14px;
+            cursor: pointer;
         }
 
         footer p {
@@ -62,6 +56,7 @@
             font-size: 24px;
             color: gray;
         }
+
         /* ****************************************************
         *                Grid section
         *******************************************************/
@@ -70,33 +65,41 @@
             color: darkgreen;
             border-radius: 10px;
         }*/
-        
-        .grid-container-header{
-            display: grid;
-            grid-template-columns: 0.6fr 1.4fr; 
-            grid-template-rows: 1fr 0.5fr; 
-            gap: 0px 0px; 
-            background-color: rgb(16, 16, 31);
 
-           /*grid-template-areas: 
-                ". ."
-                ". ."; */
+        .grid-container-header {
+            display: grid;
+            grid-template-columns: 40% auto;
+            /*0.6fr 1.4fr;*/
+            grid-template-rows: auto auto;
+            /*1fr 0.5fr; */
+            gap: 0px 0px;
+
+            grid-template-areas:
+                "headerLogo headerTitulo"
+                "headerSubtitulo headerMenu";
+        }
+
+        .gLogo {
+            grid-area: headerLogo;
         }
 
         .grid-header-right {
-            color:white;
+            grid-area: headerTitulo;
+            color: white;
             text-align: right;
             margin-right: 10px;
             font-size: 40px;
         }
 
         .grid-header-right2 {
+            grid-area: headerMenu;
             text-align: right;
             margin-right: 10px;
         }
 
         .grid-header-left {
-            color:white;
+            grid-area: headerSubtitulo;
+            color: white;
             padding-left: 10px;
         }
 
@@ -107,16 +110,20 @@
 
         .grid-item-fimg {
             margin: 20px;
-            grid-row-start: 1;  /* Comienza en la fila 1 */
-            grid-row-end: 3;    /* termina en la fila 2*/
+            grid-row-start: 1;
+            /* Comienza en la fila 1 */
+            grid-row-end: 3;
+            /* termina en la fila 2*/
         }
 
         /* ****************************************************
         *                Flex section
         *******************************************************/
         .fLeft.fCentral.fRight {
-            flex-grow: 1;       /*Crece todo el ancho posible*/
-            flex-basis: 100%;   /*Por defecto*/
+            flex-grow: 1;
+            /*Crece todo el ancho posible*/
+            flex-basis: 100%;
+            /*Por defecto*/
         }
 
         .flex-containerh {
@@ -127,7 +134,7 @@
             background-color: rgb(16, 16, 31);
         }
 
-        .flex-containerh > div {
+        .flex-containerh>div {
             margin: 5px;
             padding: 20px;
             font-size: 30px;
@@ -137,20 +144,85 @@
         *                Media section
         *******************************************************/
         /*Media tamaño tablet*/
-        @media all and (min-width: 600px){
+        @media all and (min-width: 600px) {
+            .grid-container-header {
+                /* 4 filas / 2 columna */
+                grid-template: auto auto auto auto / 180px auto;
 
-            .fLeft.fCentral.fRight
-            {
-                flex: 1 1 auto; /* flex: <flex-grow> <flex-shrink> <flex-basis> */
+                /* Distribucion el contenido en cada fila */
+                grid-template-areas:
+                    "headerLogo headerTitulo"
+                    "headerSubtitulo headerMenu";
+            }
+
+            .childLogo {
+                position: absolute;
+                top: 20px;
+                ;
+                left: 25px;
+            }
+
+            .fLeft.fCentral.fRight {
+                flex: 1 1 auto;
+                /* flex: <flex-grow> <flex-shrink> <flex-basis> */
             }
         }
 
         /* PC */
-        @media all and (min-width: 800px){
-            .fCentral {flex:2 0;} 
-            .fLeft {order: 1;}
-            .fCentral {order: 2; }
-            .fRight {order: 3;}
+        @media all and (min-width: 800px) {
+            .grid-container-header {
+                /* 2 filas / 3 columna */
+                grid-template: auto auto / 180px auto auto;
+
+                /* Distribucion el contenido en cada fila */
+                grid-template-areas:
+                    "headerLogo headerSubtitulo headerTitulo"
+                    "headerMenu headerMenu headerMenu"
+            }
+
+            .grid-header-left {
+                text-align: left;
+            }
+
+            .fCentral {
+                flex: 2 0;
+            }
+
+            .fLeft {
+                order: 1;
+            }
+
+            .fCentral {
+                order: 2;
+            }
+
+            .fRight {
+                order: 3;
+            }
+        }
+
+        @media all and (max-width:599px) {
+            .grid-container-header {
+                /* 3 filas / 2 columna */
+                grid-template: 100px auto auto auto / auto auto;
+
+                /* Distribucion el contenido en cada fila */
+                grid-template-areas:
+                    "headerTitulo headerTitulo"
+                    "headerLogo headerSubtitulo"
+                    "headerMenu headerMenu";
+            }
+
+            .grid-header-right {
+                text-align: center;
+            }
+
+            .childLogo {
+                position: absolute;
+                top: 120px;
+                ;
+                left: 25px;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -158,32 +230,32 @@
 
 <body>
     <div class="container">
-        <header>        
-            <div class="grid-container-header">
+        <header>
+            <div class="grid-container-header header">
 
-                <div class="logo">
-                    <span class="dot"></span>               
+                <div class="logo gLogo">
+                    <span class="dot"></span>
                     <img src="img/dragonFlyColor-mid.png" class="childLogo" alt="Dojo" width="90" height="90"><!-- -->
-                    <img src="img/Aikido_Kanji_3.png" class="" height="90" >
+                    <img src="img/Aikido_Kanji_3.png" class="" height="90">
                 </div>
-                
+
                 <h1 class="grid-header-right"> Aikido para todos</h1>
-                <h2 class="grid-header-left">Virtual Dojo</h2>             
+                <h2 class="grid-header-left">Virtual Dojo</h2>
 
                 <nav class="grid-header-right2">
                     <button class="button" onclick="goHome()">Inicio</button> |
                     <button class="button" onclick="goAikidoInfo()">Sobre el Aikido</button> |
-                    <button class="button">Galeria</button> |
+                    <button class="button" onclick="goGallery()">Galeria</button> |
                     <button class="button" onClick="goContacto()">Contacto</button> |
                 </nav>
-            
-            </div>
-        </header> 
-        <div class="contenido">
-            <main>
-            <div id="mainContent">
 
             </div>
+        </header>
+        <div class="contenido">
+            <main>
+                <div id="mainContent">
+
+                </div>
             </main>
         </div>
         <footer>
@@ -209,7 +281,7 @@
                         <p>Seguinos en:</p>
                     </div>
                     <div>
-                        <img src="img/social_face.png" >
+                        <img src="img/social_face.png">
                         <img src="img/social_twitter.png">
                         <img src="img/social_youtube.png">
                     </div>
@@ -221,18 +293,19 @@
     <script>
         $("#mainContent").load("template/home.html");
 
-        function goHome() 
-        {
+        function goHome() {
             $("#mainContent").load("template/home.html");
         }
 
-        function goAikidoInfo ()
-        {
+        function goAikidoInfo() {
             $("#mainContent").load("template/aikidoInfo.html");
         }
 
-        function goContacto ()
-        {
+        function goGallery() {
+            location.href="template/galeria.html";
+        }
+
+        function goContacto() {
             $("#mainContent").load("template/contacto.html");
         }
 

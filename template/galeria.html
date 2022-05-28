@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" href="../css/generalStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Galeria</title>
+    <style>
+        body {
+            background: #000;
+        }
+
+        /* Animation property */
+        button {
+            animation: wiggle 4s linear infinite;
+        }
+
+        /* Keyframes */
+        @keyframes wiggle {
+
+            0%,
+            7% {
+                transform: rotateZ(0);
+            }
+
+            15% {
+                transform: rotateY(-12deg);
+            }
+
+            20% {
+                transform: rotateZ(10deg);
+            }
+
+            25% {
+                transform: rotateZ(-10deg);
+            }
+
+            30% {
+                transform: rotateZ(6deg);
+            }
+
+            35% {
+                transform: rotateZ(-4deg);
+            }
+
+            40%,
+            100% {
+                transform: rotateZ(0);
+            }
+        }
+
+        button {
+            position: absolute;
+            left: 30px;
+            top: 35px;
+
+            height: 3em;
+            width: 6em;
+
+            background: darkgray;
+            border: none;
+            border-radius: 0.2em 0.2em 0.2em 0.2em;
+            color: white;
+            font-size: 1em;
+            transform-origin: 50% 5em;
+        }
+
+        h1 {
+            padding-top: 15px;
+        }
+
+        .topHeader {
+            text-align: center;
+            height: 75px;
+        }
+
+        /* ****************************************************
+        *                Gallery
+        *******************************************************/
+        .gallery-general {
+            padding: 20px;
+            border-radius: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #464646;
+        }
+
+        .gallery-general img {
+            height: 250px;
+            width: 350px;
+            transform: scale(1.0);
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .img-item {
+            box-sizing: content-box;
+            border-radius: 2em;
+            margin: 10px;
+            height: 250px;
+            width: 350px;
+            overflow: hidden;
+            display: inline-block;
+            color: white;
+            position: relative;
+            box-shadow: 0 0 16px rgb(158, 158, 109);
+            /*background-color: white;*/
+        }
+
+        .img-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .img-item:hover .transparent-box {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .img-description {
+            position: absolute;
+            bottom: 0px;
+            left: 20px;
+            opacity: 0.0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /*.img-item:hover .transparent-box {
+            background-color: rgba(0, 0, 0, 0.5);
+        }*/
+
+        .img-item:hover .img-description {
+            transform: translateY(-20px);
+            opacity: 1.0;
+        }
+
+        .description-opacity-low {
+            opacity: 0.5;
+        }
+
+
+        /*.flex-top-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }*/
+
+        @media all and (max-width: 600px) {
+            .title-page {
+                margin-left: 160px;
+                margin-right: 20px;
+            }
+
+            .topHeader {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header topHeader">
+            <div>
+                <button class="button" onclick="location.href='../index.html'">Volver</button>
+            </div>
+            <div>
+                <h1 class="title-page">Galeria de Imagenes</h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="gallery-general">
+            <div class="img-item">
+                <img src="../img/fotos/100.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Formacion para el saludo</p>
+                        <p class="description-opacity-low">Año 2016</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/110.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Ukemi</p>
+                        <p class="description-opacity-low">Febrero 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/130.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Practica - Ikkyo</p>
+                        <p class="description-opacity-low">Abril 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/140.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Practica - Shime</p>
+                        <p class="description-opacity-low">Abril 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/150.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Seminario</p>
+                        <p class="description-opacity-low">Mayo 2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/160.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase infatiles</p>
+                        <p class="description-opacity-low">Marzo 2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/170.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Aikido Kids</p>
+                        <p class="description-opacity-low">Marzo 2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/180.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase - Katatedori</p>
+                        <p class="description-opacity-low">Noviembre 2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/190.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Seminario de armas en Ezeiza</p>
+                        <p class="description-opacity-low">Febrero 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/200.jpg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Formacion de saludo</p>
+                        <p class="description-opacity-low">Abril 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/210.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Entrenamiento</p>
+                        <p class="description-opacity-low">Mayo 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/220.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase de los Jueves</p>
+                        <p class="description-opacity-low">Septiembre 2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/230.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase especial en Bernal</p>
+                        <p class="description-opacity-low">Mayo 2022</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-item">
+                <img src="../img/fotos/240.jpeg" alt="" />
+                <div class="transparent-box">
+                    <div class="img-description">
+                        <p>Clase de Lucia</p>
+                        <p class="description-opacity-low">Mayo 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
